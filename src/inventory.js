@@ -12,7 +12,7 @@ export class Inventory {
     } else {
         console.log(`${character.name} is out of health potions.`);
         }
-        return character.health
+        return character.health;
     }
 
 }

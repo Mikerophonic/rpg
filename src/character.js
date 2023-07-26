@@ -48,7 +48,7 @@ export class Mage extends Character {
   constructor(str, dex, int, def, mag, name) {
   super(str, dex, int, def, mag, name); 
   this.str = 15;
-  this.dex = 35;
+  this.dex = 30;
   this.int = 35;
   this.def = 25;
   this.mag = 50;
