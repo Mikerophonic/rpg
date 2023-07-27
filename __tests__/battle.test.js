@@ -69,11 +69,21 @@ import {Character, Warrior, Mage} from './../src/character.js';
             battle.attack(warrior, mage);
             expect(warrior.exp).toEqual(10)
         });
-        test('It should level ', () => {
+        test('It should level up a character if experience reaches 100', () => {
             let warrior = new Warrior();
             let mage = new Mage();
             let battle = new Battle(warrior, mage);
+            warrior.exp = 90;
+            mage.exp = 90;
             battle.attack(warrior, mage);
-            expect(warrior.exp).toEqual(10)
+            expect(warrior.level).toEqual(2)
         });
+        // test('It should test dexterity to see if players miss their attacks', () => {
+        //     let warrior = new Warrior();
+        //     let mage = new Mage();
+        //     let battle = new Battle(warrior, mage);
+        //     battle.hitOrMiss(mage, warrior);
+
+        // })
+        
     });

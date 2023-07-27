@@ -119,3 +119,5 @@ export class Knight extends Character {
   console.log(this.name + " protected holily!")
   }
 }
+
+console.log("test")
