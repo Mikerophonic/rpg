@@ -6,6 +6,21 @@ export class Character {
       this.def = def;
       this.mag = mag;
       this.name = name;
+      this.exp = 0;
+      this.level = 1
+    }
+
+    levelUp() {
+      if (this.exp >= 100) {
+        this.level++
+        this.exp = this.exp - 100
+        this.str += Math.floor(Math.random() * 15)
+        this.dex += Math.floor(Math.random() * 15)
+        this.int += Math.floor(Math.random() * 15)
+        this.def += Math.floor(Math.random() * 15)
+        this.mag += Math.floor(Math.random() * 15)
+
+      }
     }
     
   }
@@ -20,6 +35,8 @@ export class Warrior extends Character {
     this.mag = 2;
     this.name = "Conan";
     this.health = 40 * 10;
+    this.exp = 0
+    this.level = 1
   }
 
     bigThrust() {
@@ -37,6 +54,8 @@ export class Ranger extends Character {
   this.mag = 10;
   this.name = "";
   this.health = 35 * 10;
+  this.exp = 0
+  this.level = 1
 }
 
   sneakAttack() {
@@ -54,6 +73,8 @@ export class Mage extends Character {
   this.mag = 50;
   this.name = "Elementia";
   this.health = 25 * 10;
+  this.exp = 0
+  this.level = 1
 }
 
   celestialBurst() {
@@ -71,6 +92,8 @@ export class Cleric extends Character {
   this.mag = 35;
   this.name = "";
   this.health = 25 * 10;
+  this.exp = 0
+  this.level = 1
 }
 
   heal() {
@@ -88,6 +111,8 @@ export class Knight extends Character {
   this.mag = 10;
   this.name = "";
   this.health = 50 * 10;
+  this.exp = 0
+  this.level = 1
 }
 
   holyProtection() {

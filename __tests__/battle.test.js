@@ -46,4 +46,34 @@ import {Character, Warrior, Mage} from './../src/character.js';
             battle.startTurn();
             expect(battle.turn).toEqual(warrior);
         });
+        test('It should change turns if a player makes an action', () => {
+            let warrior = new Warrior();
+            let mage = new Mage();
+            let battle = new Battle(warrior, mage);
+            battle.startTurn();
+            battle.attack(warrior, mage);
+            expect(battle.turn).toEqual(mage);
+        });
+        test('It should end the game if a players health reaches 0', () => {
+            let warrior = new Warrior();
+            let mage = new Mage();
+            let battle = new Battle(warrior, mage);
+            mage.health = 10;
+            battle.attack(warrior, mage);
+            expect(battle.isGameOver()).toEqual("Elementia loses!")
+        });
+        test('It should give the attacker 10 exp when they attack', () => {
+            let warrior = new Warrior();
+            let mage = new Mage();
+            let battle = new Battle(warrior, mage);
+            battle.attack(warrior, mage);
+            expect(warrior.exp).toEqual(10)
+        });
+        test('It should level ', () => {
+            let warrior = new Warrior();
+            let mage = new Mage();
+            let battle = new Battle(warrior, mage);
+            battle.attack(warrior, mage);
+            expect(warrior.exp).toEqual(10)
+        });
     });

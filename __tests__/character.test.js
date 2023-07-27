@@ -24,4 +24,12 @@ import {Character, Warrior} from './../src/character.js';
             let warrior = new Warrior;
             expect(warrior.name).toEqual("Conan");
         });
+        test('It should level up a character with 100 exp, increasing stats', () => {
+            let warrior = new Warrior;
+            warrior.exp = 100
+            warrior.levelUp()
+            expect(warrior.level).toEqual(2);
+            expect(warrior.str).toBeGreaterThan(50);
+            expect(warrior.exp).toEqual(0);
+        });
     });

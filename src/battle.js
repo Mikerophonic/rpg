@@ -12,7 +12,10 @@ export class Battle {
     attack(attacker, defender) {
         let damage = attacker.str - defender.def;
         defender.health = defender.health - damage;
-        this.changeTurn()
+        attacker.exp = attacker.exp + 10
+        attacker.levelUp()
+        this.isGameOver();
+        this.changeTurn();
         return defender.health;
     }
     magAttack(attacker, defender) {
@@ -39,6 +42,13 @@ export class Battle {
             this.turn = this.player2;
         } else if (this.turn === this.player2) {
             this.turn = this.player1;
+        }
+    }
+    isGameOver(){
+        if (this.player1.health <= 0) {
+            return `${this.player1.name} loses!`
+        } else if (this.player2.health <= 0) {
+            return `${this.player2.name} loses!`
         }
     }
 }
